@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Function scope example</title>
+  </head>
+<body>
+  <script>
+    
+    function userinput (value) {
+        value= value.toLowerCase();
+        return value;
+    }
+
+    function getcomputerchoice () {
+        let options = ["rock","paper","scissors"];
+        random1= options[Math.floor(Math.random()*options.length)];
+        return random1;
+    }
+
+    function play(){
+        let value=prompt("Please enter your choice");
+        playerchoice= userinput(value);
+        computerchoice= getcomputerchoice();
+        if (playerchoice == computerchoice){
+            let X= "It is a draw!";
+            return(`Your choice is: ${userinput(value)}\nComputers choice is: ${random1} \n`+X);
+        }
+            else{
+                if (playerchoice=="rock" && computerchoice=="paper"){
+                    let X="You lose! Paper beats Rock";
+                    return (`Your choice is: ${userinput(value)}\nComputers choice is: ${random1} \n`+X);
+                }
+                else if (playerchoice=="rock" && computerchoice=="scissors"){
+                    let X="You win! Rock beats Scissors";
+                    return (`Your choice is: ${userinput(value)}\nComputers choice is: ${random1} \n`+X);
+                }
+                else if (playerchoice=="paper" && computerchoice=="rock"){
+                    let X="You win! Paper beats Rock";
+                    return(`Your choice is: ${userinput(value)}\nComputers choice is: ${random1} \n`+X);
+                }
+                else if (playerchoice=="paper" && computerchoice=="scissors"){
+                    let X="You lose! Scissors beats Paper";
+                    return (`Your choice is: ${userinput(value)}\nComputers choice is: ${random1} \n`+X);
+                }
+                else if (playerchoice=="scissors" && computerchoice=="rock"){
+                    let X="You lose! Rock beats Scissors";
+                    return (`Your choice is: ${userinput(value)}\nComputers choice is: ${random1} \n`+X);
+                }
+                else if (playerchoice=="scissors" && computerchoice=="paper"){
+                    let X="You win! Scissors beats Paper";
+                    return (`Your choice is: ${userinput(value)}\nComputers choice is: ${random1} \n`+X);
+                }
+                else{
+                    return (`${userinput(value)} is not a valid option`)
+                }
+
+        }
+
+        
+    }
+    console.log(play());
+  </script>
+</body>
+</html>
