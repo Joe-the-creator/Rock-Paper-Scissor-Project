@@ -19,48 +19,97 @@
         return random1;
     }
 
+
+
     function play(){
-        let value=prompt("Please enter your choice");
+        value=prompt("Please enter your choice");
         playerchoice= userinput(value);
         computerchoice= getcomputerchoice();
         if (playerchoice == computerchoice){
             let X= "It is a draw!";
-            return(`Your choice is: ${userinput(value)}\nComputers choice is: ${random1} \n`+X);
+            R=2;
+            console.log(`Your choice is: ${userinput(value)}\nComputers choice is: ${random1} \n`+X+`\n`);
+            return (R);
         }
             else{
                 if (playerchoice=="rock" && computerchoice=="paper"){
                     let X="You lose! Paper beats Rock";
-                    return (`Your choice is: ${userinput(value)}\nComputers choice is: ${random1} \n`+X);
+                    R=0;
+                    console.log (`Your choice is: ${userinput(value)}\nComputers choice is: ${random1} \n`+X);
+                    return (R);
                 }
                 else if (playerchoice=="rock" && computerchoice=="scissors"){
                     let X="You win! Rock beats Scissors";
-                    return (`Your choice is: ${userinput(value)}\nComputers choice is: ${random1} \n`+X);
+                    R=1;
+                    console.log (`Your choice is: ${userinput(value)}\nComputers choice is: ${random1} \n`+X);
+                    return (R);
                 }
                 else if (playerchoice=="paper" && computerchoice=="rock"){
                     let X="You win! Paper beats Rock";
-                    return(`Your choice is: ${userinput(value)}\nComputers choice is: ${random1} \n`+X);
+                    R=1;
+                    console.log(`Your choice is: ${userinput(value)}\nComputers choice is: ${random1} \n`+X);
+                    return (R);
                 }
                 else if (playerchoice=="paper" && computerchoice=="scissors"){
                     let X="You lose! Scissors beats Paper";
-                    return (`Your choice is: ${userinput(value)}\nComputers choice is: ${random1} \n`+X);
+                    R=0;
+                    console.log (`Your choice is: ${userinput(value)}\nComputers choice is: ${random1} \n`+X);
+                    return (R);
                 }
                 else if (playerchoice=="scissors" && computerchoice=="rock"){
                     let X="You lose! Rock beats Scissors";
-                    return (`Your choice is: ${userinput(value)}\nComputers choice is: ${random1} \n`+X);
+                    R=0;
+                    console.log (`Your choice is: ${userinput(value)}\nComputers choice is: ${random1} \n`+X);
+                    return (R);
                 }
                 else if (playerchoice=="scissors" && computerchoice=="paper"){
                     let X="You win! Scissors beats Paper";
-                    return (`Your choice is: ${userinput(value)}\nComputers choice is: ${random1} \n`+X);
+                    R=1;
+                    console.log (`Your choice is: ${userinput(value)}\nComputers choice is: ${random1} \n`+X);
+                    return (R);
                 }
                 else{
-                    return (`${userinput(value)} is not a valid option`)
+                    R=2;
+                    console.log (`${userinput(value)} is not a valid option`)
+                    return (R);
                 }
 
         }
-
-    
     }
-    console.log(play());
+
+    function game(){
+        let Userpoints=0;
+        let Computerpoints=0;
+        for (let i=0; i<5;i++) {
+            play();
+            if (R==1){
+                Userpoints=Userpoints+1;
+                console.log (`User:${Userpoints}\nComputer:${Computerpoints}`);
+            }
+            else if (R==0) {
+                Computerpoints=Computerpoints+1;
+                console.log (`User:${Userpoints}\nComputer:${Computerpoints}`);
+            }
+            else if (R==2){
+                console.log (`User:${Userpoints}\nComputer:${Computerpoints}`);
+            }
+
+        }
+        
+        if (Userpoints>Computerpoints){
+            console.log(`Congratulations!! You won the game! \nFinal Score of the game \nUser:${Userpoints}\nComputer:${Computerpoints}`);
+        }
+        else if (Userpoints<Computerpoints){
+            console.log(`Better luck next time! You lose the game! \nFinal Score of the game \nUser:${Userpoints}\nComputer:${Computerpoints}`);
+
+        }
+        else if (Userpoints==Computerpoints){
+            console.log(`It is a tie of the game!  \nFinal Score of the game \nUser:${Userpoints}\nComputer:${Computerpoints}`);
+
+        }
+    }    
+    
+    game();
   </script>
 </body>
 </html>
